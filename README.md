@@ -1,4 +1,6 @@
 # HolidayHomeOwnersWebApi
+C# .net core 3.1 Web Api: https://github.com/fabriciosvallasciani/HolidayHomeOwnersWebApi Angular UI: https://github.com/fabriciosvallasciani/HolidayHomeOwnersAngular
+
 ## Technical assessment
 
 ### Foreword
