@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Entities;
 using Models;
+using System.Collections.Generic;
 
 namespace HolidayHomesOwnersWebApi.Profiles
 {
@@ -7,6 +9,7 @@ namespace HolidayHomesOwnersWebApi.Profiles
     {
         public HolidayHomeProfile()
         {
+            CreateMap<Entities.HolidayHomeImage, HolidayHomeImageDto>();
             CreateMap<Entities.HolidayHome, HolidayHomeDto>();
             CreateMap<HolidayHomeForCreationDto, Entities.HolidayHome>();
             CreateMap<HolidayHomeForUpdateDto, Entities.HolidayHome>();

@@ -88,7 +88,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
 
             var homeEntityToPersist = _mapper.Map<Entities.HolidayHome>(homePosted);
 
-            _ownersRepository.Add(ownerId, homeEntityToPersist);
+            await _ownersRepository.Add(ownerId, homeEntityToPersist);
             await _ownersRepository.Save();
 
             var newHome = _mapper.Map<HolidayHomeDto>(homeEntityToPersist);

@@ -47,6 +47,7 @@ namespace Repositories.Services
         public async Task<HolidayHome> Get(int ownerId, int homeId)
         {
             return await _context.HolidayHomes
+                .Include(home => home.ImagesList)
                 .Where(home => home.OwnerId == ownerId && home.Id == homeId)
                 .FirstOrDefaultAsync();
         }
@@ -54,6 +55,7 @@ namespace Repositories.Services
         public async Task<IEnumerable<HolidayHome>> GetHomes(int ownerId)
         {
             return await _context.HolidayHomes
+                .Include(home => home.ImagesList)
                 .Where(home => home.OwnerId == ownerId)
                 .ToListAsync();
         }
