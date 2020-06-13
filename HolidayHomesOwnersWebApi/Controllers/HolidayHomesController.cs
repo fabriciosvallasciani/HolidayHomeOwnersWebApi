@@ -32,7 +32,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetHolidayHomes(int ownerId)
+        public async Task<IActionResult> Get(int ownerId)
         {
             bool ownerExists = await _ownersRepository.Exists(ownerId);
             if (!ownerExists)
@@ -51,10 +51,10 @@ namespace HolidayHomesOwnersWebApi.Controllers
             return Ok(results);
         }
                         
-        [HttpGet("{id}", Name = "GetHolidayHome")]
+        [HttpGet("{id}", Name = "Get")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetHolidayHome(int ownerId, int id)
+        public async Task<IActionResult> Get(int ownerId, int id)
         {
             var ownerExists = await _ownersRepository.Exists(ownerId);
             if (!ownerExists)
@@ -77,7 +77,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> PostHolidayHome(int ownerId, [FromBody]HolidayHomeForCreationDto homePosted)
+        public async Task<IActionResult> Post(int ownerId, [FromBody]HolidayHomeForCreationDto homePosted)
         {
             var ownerExists = await _ownersRepository.Exists(ownerId);
 
@@ -93,7 +93,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
 
             var newHome = _mapper.Map<HolidayHomeDto>(homeEntityToPersist);
 
-            return CreatedAtRoute(nameof(GetHolidayHome),
+            return CreatedAtRoute(nameof(Get),
                 new { ownerId, id = newHome.Id },
                 newHome);            
         }
@@ -102,7 +102,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> PutHolidayHome(int ownerId, int id, [FromBody]HolidayHomeForUpdateDto homeUpdated)
+        public async Task<IActionResult> Put(int ownerId, int id, [FromBody]HolidayHomeForUpdateDto homeUpdated)
         {
             var ownerExists = await _ownersRepository.Exists(ownerId);
                 
@@ -128,7 +128,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> DeleteHolidayHome(int ownerId, int id)
+        public async Task<IActionResult> Delete(int ownerId, int id)
         {
             var ownerExists = await _ownersRepository.Exists(ownerId);
             if (!ownerExists)
