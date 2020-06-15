@@ -1,8 +1,4 @@
-﻿using Repositories.Contexts;
-using HolidayHomesOwnersWebApi.Handlers;
-using Repositories.Services;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace HolidayHomesOwnersWebApi
 {

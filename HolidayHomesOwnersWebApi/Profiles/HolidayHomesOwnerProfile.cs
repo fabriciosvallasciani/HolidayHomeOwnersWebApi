@@ -7,7 +7,7 @@ namespace HolidayHomesOwnersWebApi.Profiles
     {
         public HolidayHomesOwnerProfile()
         {
-            CreateMap<Entities.HolidayHomesOwner, HolidayHomesOwnerBaseDto>();
+            CreateMap<Entities.HolidayHomesOwner, HolidayHomesOwnerDto>();
         }
     }
 }

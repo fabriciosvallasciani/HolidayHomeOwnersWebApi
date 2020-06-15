@@ -39,7 +39,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
                 return NoContent();
             }
 
-            var results = _mapper.Map<List<HolidayHomesOwnerBaseDto>>(ownersEntities);           
+            var results = _mapper.Map<List<HolidayHomesOwnerDto>>(ownersEntities);           
 
             return Ok(results);
         }

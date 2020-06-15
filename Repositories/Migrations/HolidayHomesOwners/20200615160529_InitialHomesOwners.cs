@@ -13,7 +13,9 @@ namespace Repositories.Migrations.HolidayHomesOwners
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true)
+                    LastName = table.Column<string>(nullable: true),
+                    Telephone = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -75,18 +77,18 @@ namespace Repositories.Migrations.HolidayHomesOwners
 
             migrationBuilder.InsertData(
                 table: "HolidayHomesOwners",
-                columns: new[] { "Id", "FirstName", "LastName" },
-                values: new object[] { 1, "Fabricio", "Vallasciani" });
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "Telephone" },
+                values: new object[] { 1, "fabriciosvallasciani@hotmail.com", "Fabricio", "Vallasciani", "+549341678888" });
 
             migrationBuilder.InsertData(
                 table: "HolidayHomesOwners",
-                columns: new[] { "Id", "FirstName", "LastName" },
-                values: new object[] { 2, "Susana", "Marcos" });
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "Telephone" },
+                values: new object[] { 2, "susanabmarcos@hotmail.com", "Susana", "Marcos", "+54934933079" });
 
             migrationBuilder.InsertData(
                 table: "HolidayHomesOwners",
-                columns: new[] { "Id", "FirstName", "LastName" },
-                values: new object[] { 3, "Peter", "Petrelli" });
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "Telephone" },
+                values: new object[] { 3, "peterpetrelli@hotmail.com", "Peter", "Petrelli", "+44760608930" });
 
             migrationBuilder.InsertData(
                 table: "HolidayHomes",

@@ -205,10 +205,16 @@ namespace Repositories.Migrations.HolidayHomesOwners
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telephone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -219,20 +225,26 @@ namespace Repositories.Migrations.HolidayHomesOwners
                         new
                         {
                             Id = 1,
+                            Email = "fabriciosvallasciani@hotmail.com",
                             FirstName = "Fabricio",
-                            LastName = "Vallasciani"
+                            LastName = "Vallasciani",
+                            Telephone = "+549341678888"
                         },
                         new
                         {
                             Id = 2,
+                            Email = "susanabmarcos@hotmail.com",
                             FirstName = "Susana",
-                            LastName = "Marcos"
+                            LastName = "Marcos",
+                            Telephone = "+54934933079"
                         },
                         new
                         {
                             Id = 3,
+                            Email = "peterpetrelli@hotmail.com",
                             FirstName = "Peter",
-                            LastName = "Petrelli"
+                            LastName = "Petrelli",
+                            Telephone = "+44760608930"
                         });
                 });
 

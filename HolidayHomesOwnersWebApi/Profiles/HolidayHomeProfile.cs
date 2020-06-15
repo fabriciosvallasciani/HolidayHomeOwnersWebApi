@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Entities;
 using Models;
-using System.Collections.Generic;
 
 namespace HolidayHomesOwnersWebApi.Profiles
 {
