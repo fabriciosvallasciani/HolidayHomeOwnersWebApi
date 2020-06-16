@@ -33,7 +33,5 @@ namespace Models
         public byte DistanceToShopping { get; set; }
 
         public ICollection<HolidayHomeImageDto> ImagesList { get; set; }
-
-        public ICollection<HolidayHomesOwnerDto> Owner { get; set; }
     }
 }
