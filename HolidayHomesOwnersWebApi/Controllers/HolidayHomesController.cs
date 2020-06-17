@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 namespace HolidayHomesOwnersWebApi.Controllers
 {
     [Authorize]
-    [Route("api/holidayhomesowners/{ownerId}/homes/")]
+    [Route("api/owners/{ownerId}/homes/")]
     [ApiController]
     public class HolidayHomesController: ControllerBase
     {
-        private readonly IHolidayHomesOwnersRepository _ownersRepository;
+        private readonly IHolidayHomesOwnersRepository _repository;
         private readonly IMapper _mapper;
 
-        public HolidayHomesController(IHolidayHomesOwnersRepository ownersRepository,
+        public HolidayHomesController(IHolidayHomesOwnersRepository repository,
             IMapper mapper)
         {
-            _ownersRepository = ownersRepository ??
-                throw new ArgumentNullException(nameof(ownersRepository));
+            _repository = repository ??
+                throw new ArgumentNullException(nameof(repository));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
         }
@@ -34,13 +34,13 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(int ownerId)
         {
-            bool ownerExists = await _ownersRepository.Exists(ownerId);
+            bool ownerExists = await _repository.Exists(ownerId);
             if (!ownerExists)
             {
                 return NotFound();
             }
 
-            var homesEntities = await _ownersRepository.GetHomes(ownerId);
+            var homesEntities = await _repository.GetHomes(ownerId);
             if (homesEntities == null)
             {
                 return NoContent();
@@ -56,13 +56,13 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(int ownerId, int id)
         {
-            var ownerExists = await _ownersRepository.Exists(ownerId);
+            var ownerExists = await _repository.Exists(ownerId);
             if (!ownerExists)
             {
                 return NotFound();
             }
 
-            var homeEntity = await _ownersRepository.Get(ownerId, id);
+            var homeEntity = await _repository.Get(ownerId, id);
             if (homeEntity == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Post(int ownerId, [FromBody]HolidayHomeForCreationDto homePosted)
         {
-            var ownerExists = await _ownersRepository.Exists(ownerId);
+            var ownerExists = await _repository.Exists(ownerId);
 
             if (!ownerExists)
             {
@@ -88,8 +88,8 @@ namespace HolidayHomesOwnersWebApi.Controllers
 
             var homeEntityToPersist = _mapper.Map<Entities.HolidayHome>(homePosted);
 
-            await _ownersRepository.Add(ownerId, homeEntityToPersist);
-            await _ownersRepository.Save();
+            await _repository.Add(ownerId, homeEntityToPersist);
+            await _repository.Save();
 
             var newHome = _mapper.Map<HolidayHomeDto>(homeEntityToPersist);
 
@@ -104,14 +104,14 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Put(int ownerId, int id, [FromBody]HolidayHomeForUpdateDto homeUpdated)
         {
-            var ownerExists = await _ownersRepository.Exists(ownerId);
+            var ownerExists = await _repository.Exists(ownerId);
                 
             if (!ownerExists)
             {
                 return NotFound();
             }
 
-            var homeEntity = await _ownersRepository.Get(ownerId, id);
+            var homeEntity = await _repository.Get(ownerId, id);
             if (homeEntity == null)
             {
                 return NotFound();
@@ -119,8 +119,8 @@ namespace HolidayHomesOwnersWebApi.Controllers
 
             _mapper.Map(homeUpdated, homeEntity);
 
-            _ownersRepository.Update(ownerId, homeEntity);
-            await _ownersRepository.Save();
+            _repository.Update(ownerId, homeEntity);
+            await _repository.Save();
             
             return NoContent();
         }
@@ -130,20 +130,20 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Delete(int ownerId, int id)
         {
-            var ownerExists = await _ownersRepository.Exists(ownerId);
+            var ownerExists = await _repository.Exists(ownerId);
             if (!ownerExists)
             {
                 return NotFound();
             }
 
-            var homeEntity = await _ownersRepository.Get(ownerId, id);
+            var homeEntity = await _repository.Get(ownerId, id);
             if (homeEntity == null)
             {
                 return NotFound();
             }
 
-            _ownersRepository.Remove(homeEntity);
-            await _ownersRepository.Save();
+            _repository.Remove(homeEntity);
+            await _repository.Save();
             
             return NoContent();            
         }

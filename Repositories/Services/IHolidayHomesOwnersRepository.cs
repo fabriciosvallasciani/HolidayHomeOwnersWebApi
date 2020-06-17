@@ -10,9 +10,9 @@ namespace Repositories.Services
 
         Task<bool> Exists(int ownerId);
 
-        Task<HolidayHomesOwner> Get(int ownerId);
+        Task<Owner> Get(int ownerId);
 
-        Task<IEnumerable<HolidayHomesOwner>> GetAll();
+        Task<IEnumerable<Owner>> GetAll();
 
         Task<HolidayHome> Get(int ownerId, int homeId);
 

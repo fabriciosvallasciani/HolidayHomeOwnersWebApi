@@ -5,7 +5,7 @@ namespace Repositories.Contexts
 {
     public class HolidayHomesOwnersContext : DbContext
     {
-        public DbSet<HolidayHomesOwner> HolidayHomesOwners { get; set; }
+        public DbSet<Owner> HolidayHomesOwners { get; set; }
         public DbSet<HolidayHome> HolidayHomes { get; set; }
 
         public HolidayHomesOwnersContext(DbContextOptions<HolidayHomesOwnersContext> options)
@@ -15,8 +15,8 @@ namespace Repositories.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<HolidayHomesOwner>().HasData(
-                new HolidayHomesOwner
+            modelBuilder.Entity<Owner>().HasData(
+                new Owner
                 {
                     Id = 1,
                     FirstName = "Fabricio",
@@ -25,8 +25,8 @@ namespace Repositories.Contexts
                     Telephone = "+549341678888"
                 });
 
-            modelBuilder.Entity<HolidayHomesOwner>().HasData(
-                new HolidayHomesOwner
+            modelBuilder.Entity<Owner>().HasData(
+                new Owner
                 {
                     Id = 2,
                     FirstName = "Susana",
@@ -36,8 +36,8 @@ namespace Repositories.Contexts
 
                 });
 
-            modelBuilder.Entity<HolidayHomesOwner>().HasData(
-                new HolidayHomesOwner
+            modelBuilder.Entity<Owner>().HasData(
+                new Owner
                 {
                     Id = 3,
                     FirstName = "Peter",

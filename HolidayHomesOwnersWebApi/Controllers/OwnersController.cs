@@ -10,19 +10,19 @@ using System.Threading.Tasks;
 
 namespace HolidayHomesOwnersWebApi.Controllers
 {
-    [Authorize]
-    [Route("api/holidayhomesowners")]
+    [AllowAnonymous]
+    [Route("api/owners")]
     [ApiController]
-    public class HolidayHomesOwnersController: ControllerBase
+    public class OwnersController: ControllerBase
     {
-        private readonly IHolidayHomesOwnersRepository _ownersRepository;
+        private readonly IHolidayHomesOwnersRepository _repository;
         private readonly IMapper _mapper;
 
-        public HolidayHomesOwnersController(IHolidayHomesOwnersRepository ownersRepository,
+        public OwnersController(IHolidayHomesOwnersRepository repository,
             IMapper mapper)
         {
-            _ownersRepository = ownersRepository ?? 
-                throw new ArgumentNullException(nameof(ownersRepository));
+            _repository = repository ?? 
+                throw new ArgumentNullException(nameof(repository));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
         }
@@ -30,16 +30,16 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetHolidayHomes()
+        public async Task<IActionResult> Get()
         {
-            var ownersEntities = await _ownersRepository.GetAll();
+            var ownersEntities = await _repository.GetAll();
 
             if (ownersEntities == null)
             {
                 return NoContent();
             }
 
-            var results = _mapper.Map<List<HolidayHomesOwnerDto>>(ownersEntities);           
+            var results = _mapper.Map<List<OwnerDto>>(ownersEntities);           
 
             return Ok(results);
         }

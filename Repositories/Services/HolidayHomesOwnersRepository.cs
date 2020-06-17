@@ -29,7 +29,7 @@ namespace Repositories.Services
                         .AnyAsync(owner => owner.Id == ownerId);
         }
 
-        public async Task<HolidayHomesOwner> Get(int ownerId)
+        public async Task<Owner> Get(int ownerId)
         {
             return await _context.HolidayHomesOwners
                         .Include(owner => owner.HolidayHomes)
@@ -37,7 +37,7 @@ namespace Repositories.Services
                         .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<HolidayHomesOwner>> GetAll()
+        public async Task<IEnumerable<Owner>> GetAll()
         {
             return await _context.HolidayHomesOwners
                 .OrderBy(owner => owner.LastName)

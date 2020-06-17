@@ -13,7 +13,7 @@ namespace HolidayHomesOwnersWebApi
             var host = CreateHostBuilder(args).Build();
             
             CreateDatabaseAndCreateAndSeedUsersTable(host);
-            CreateAndSeedHolidayHomesOwnersContextTables( host);
+            CreateAndSeedHolidayHomesOwnersContextTables(host);
 
             host.Run();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Models
 {
-    public class HolidayHomesOwnerDto
+    public class OwnerDto
     {
         public int Id { get; set; }
 

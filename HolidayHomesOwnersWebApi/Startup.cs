@@ -34,7 +34,7 @@ namespace HolidayHomesOwnersWebApi
         {
             services.AddCustomCors(_frontendUrl);
             services.AddCustomBasicAuthorization(_connectionString);
-            services.AddHolidayHomeOwnersDbContext(_connectionString);
+            services.AddOwnersDbContext(_connectionString);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllersAcceptHeadersOnlyJsonAndXml();
         }              

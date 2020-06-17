@@ -41,7 +41,7 @@ namespace Entities
             = new List<HolidayHomeImage>();
 
         [ForeignKey("OwnerId")]
-        public HolidayHomesOwner Owner { get; set; }
+        public Owner Owner { get; set; }
         
         public int OwnerId { get; set; }
     }

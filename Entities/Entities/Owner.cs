@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
-    public class HolidayHomesOwner
+    public class Owner
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

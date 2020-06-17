@@ -6,7 +6,7 @@ namespace HolidayHomesOwnersWebApi
 {
     public static class ForHolidayHomeOwnersDbContext
     {
-        public static void AddHolidayHomeOwnersDbContext(this IServiceCollection services, string connectionString)
+        public static void AddOwnersDbContext(this IServiceCollection services, string connectionString)
         {
             services.ConfigureDbContext<HolidayHomesOwnersContext>(connectionString);
             services.AddScoped<IHolidayHomesOwnersRepository, HolidayHomesOwnersRepository>();
