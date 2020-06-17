@@ -32,6 +32,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [AllowAnonymous]
         public async Task<IActionResult> Get(int ownerId)
         {
             bool ownerExists = await _repository.Exists(ownerId);
