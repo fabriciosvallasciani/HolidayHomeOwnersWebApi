@@ -9,6 +9,7 @@ namespace HolidayHomesOwnersWebApi.Profiles
         {
             CreateMap<Entities.HolidayHomeImage, HolidayHomeImageDto>();
             CreateMap<Entities.HolidayHome, HolidayHomeDto>();
+            CreateMap<HolidayHomeImageDto, Entities.HolidayHomeImage>();
             CreateMap<HolidayHomeForCreationDto, Entities.HolidayHome>();
             CreateMap<HolidayHomeForUpdateDto, Entities.HolidayHome>();
         }

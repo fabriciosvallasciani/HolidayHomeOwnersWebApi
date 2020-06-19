@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Models
 {
@@ -30,5 +31,6 @@ namespace Models
         public byte DistanceToBeach { get; set; }
 
         public byte DistanceToShopping { get; set; }
+        public ICollection<HolidayHomeImageDto> ImagesList { get; set; }
     }
 }
