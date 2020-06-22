@@ -4,7 +4,7 @@ namespace Models
 {
     public class HolidayHomeDto
     {
-        public int Id { get; set; }
+        public uint Id { get; set; }
 
         public string Description { get; set; }
 
@@ -31,6 +31,8 @@ namespace Models
         public byte DistanceToBeach { get; set; }
 
         public byte DistanceToShopping { get; set; }
+
+        public uint OwnerId { get; set; }
 
         public ICollection<HolidayHomeImageDto> ImagesList { get; set; }
     }
