@@ -6,21 +6,21 @@ namespace Repositories.Services
 {
     public interface IHolidayHomesOwnersRepository
     {
-        Task Add(int ownerId, HolidayHome newHome);
+        Task Add(uint ownerId, HolidayHome newHome);
 
-        Task<bool> Exists(int ownerId);
+        Task<bool> Exists(uint ownerId);
 
-        Task<Owner> Get(int ownerId);
+        Task<Owner> Get(uint ownerId);
 
         Task<IEnumerable<Owner>> GetAll();
 
-        Task<HolidayHome> Get(int ownerId, int homeId);
+        Task<HolidayHome> Get(uint ownerId, uint homeId);
 
-        Task<IEnumerable<HolidayHome>> GetHomes(int ownerId);
+        Task<IEnumerable<HolidayHome>> GetHomes(uint ownerId);
 
         Task<bool> Save();
 
-        void Update(int ownerId, HolidayHome homeEntity);
+        void Update(uint ownerId, HolidayHome homeEntity);
 
         void Remove(HolidayHome homeFromStore);
     }

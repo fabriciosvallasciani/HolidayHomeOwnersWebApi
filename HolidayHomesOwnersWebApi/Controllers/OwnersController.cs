@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace HolidayHomesOwnersWebApi.Controllers
 {
     [AllowAnonymous]
-    [Route("api/owners")]
+    [Route("api/owners/")]
     [ApiController]
     public class OwnersController: ControllerBase
     {
@@ -30,7 +30,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
             var ownersEntities = await _repository.GetAll();
 
@@ -42,6 +42,23 @@ namespace HolidayHomesOwnersWebApi.Controllers
             var results = _mapper.Map<List<OwnerDto>>(ownersEntities);           
 
             return Ok(results);
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get(uint id)
+        {
+            var ownerEntity = await _repository.Get(id);
+
+            if (ownerEntity == null)
+            {
+                return NotFound();
+            }
+
+            var result = _mapper.Map<OwnerDto>(ownerEntity);
+
+            return Ok(result);
         }
     }
 }
