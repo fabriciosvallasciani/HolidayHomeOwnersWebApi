@@ -30,7 +30,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<IEnumerable<OwnerDto>>> GetAll()
         {
             var ownersEntities = await _repository.GetAll();
 
@@ -47,7 +47,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(uint id)
+        public async Task<ActionResult<OwnerDto>> Get(uint id)
         {
             var ownerEntity = await _repository.Get(id);
 

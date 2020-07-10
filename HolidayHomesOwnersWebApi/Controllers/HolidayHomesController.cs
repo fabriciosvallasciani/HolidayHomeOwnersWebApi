@@ -33,7 +33,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [AllowAnonymous]
-        public async Task<IActionResult> Get(uint ownerId)
+        public async Task<ActionResult<IEnumerable<HolidayHomeDto>>> Get(uint ownerId)
         {
             bool ownerExists = await _repository.Exists(ownerId);
             if (!ownerExists)
@@ -55,7 +55,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [HttpGet("{id}", Name ="Get")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(uint ownerId, uint id)
+        public async Task<ActionResult<HolidayHomeDto>> Get(uint ownerId, uint id)
         {
             var ownerExists = await _repository.Exists(ownerId);
             if (!ownerExists)
