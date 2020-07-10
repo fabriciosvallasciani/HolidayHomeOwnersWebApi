@@ -1,6 +1,6 @@
 # HolidayHomeOwnersWebApi
-C# .net core 3.1 Web Api: https://github.com/fabriciosvallasciani/HolidayHomeOwnersWebApi Angular UI: https://github.com/fabriciosvallasciani/HolidayHomeOwnersAngular
-
+C# .net core 3.1 Web Api: https://github.com/fabriciosvallasciani/HolidayHomeOwnersWebApi
+Angular UI: https://github.com/fabriciosvallasciani/HolidayHomeOwnersAngular
 ## Technical assessment
 
 ### Foreword
@@ -10,26 +10,22 @@ C# .net core 3.1 Web Api: https://github.com/fabriciosvallasciani/HolidayHomeOwn
 * Holiday Home Owner - an entity that owns Holiday Home(s)
 * Holiday Home - single property that can be rented out
 
-2.- Create a simple Vue.js or React.js Web app that can consume the Web API and:
+2.- Create a simple Web app that can consume the Web API and:
 
 * List Owners
 * List Properties when Owner selected
-* CRUD operations for Owner and Holiday Home
+* CRUD operations for Holiday Homes of an Owner
 
 3.- Bonus:
 
 * Add authentication (BASIC auth) to the Web API, so the Web App cannot consume the API without being authenticated
-
-### Requirements
-
-* Create a public repository on GitHub and share the link by sending it to my email
 
 ### Acceptance criteria
 
 * [ASP.NET](http://asp.net/) Web API or [ASP.NET](http://asp.net/) Core API (DONE)
 * Responses should be in application/json content type (DONE)
 * Entity Framework or EF Core for Entity persistence (DONE)
-* One to many relationship between holiday homeowner and holiday homes (one owner can have zero or many holiday homes)
+* One to many relationship between holiday homeowner and holiday homes (one owner can have zero or many holiday homes) (DONE)
 * GET all holiday homeowners endpoint (DONE)
 * CRUD endpoints for Holiday Homes (DONE)
 * It should not be possible to create a Holiday Home with owner id that does not exist (DONE)
