@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Models
 {
     public class HolidayHomeImageDto
     {
@@ -6,6 +8,7 @@
 
         public string Description { get; set; }
 
+        [Required]
         public string Url { get; set; }
     }
 }

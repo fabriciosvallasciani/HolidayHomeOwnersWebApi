@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayHomesOwnersWebApi", "HolidayHomesOwnersWebApi\HolidayHomesOwnersWebApi.csproj", "{481C36BF-3250-4008-AFBC-727D8533F188}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{8D23CC84-23AF-4B07-A7D9-35A72EDE0BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtos", "Models\Dtos.csproj", "{8D23CC84-23AF-4B07-A7D9-35A72EDE0BBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{6EFCE2B4-EDE3-440E-956A-E792CFEDD52D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{6EFCE2B4-EDE3-440E-956A-E792CFEDD52D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{975A224D-969B-4788-9310-267DF1EFB6D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{975A224D-969B-4788-9310-267DF1EFB6D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
