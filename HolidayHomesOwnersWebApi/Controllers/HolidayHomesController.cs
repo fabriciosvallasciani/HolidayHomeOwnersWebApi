@@ -78,7 +78,7 @@ namespace HolidayHomesOwnersWebApi.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> Post(uint ownerId, [FromBody]HolidayHomeForCreationDto homePosted)
+        public async Task<ActionResult<HolidayHomeDto>> Post(uint ownerId, [FromBody]HolidayHomeForCreationDto homePosted)
         {
             var ownerExists = await _repository.Exists(ownerId);
 
